@@ -212,8 +212,8 @@
     {
       "b": 209,
       "disableInputWhenNotFocused": true,
-      "mangledName": "_26410_21629_21517_22580_26223",
-      "name": "未命名場景",
+      "mangledName": "game",
+      "name": "game",
       "r": 209,
       "standardSortMethod": true,
       "stopSoundsOnStartup": true,
