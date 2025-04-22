@@ -198,6 +198,30 @@
         "name": "player15",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite2.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite2",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/NewSprite3.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "NewSprite3",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "assets/AttackHitbox1.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "AttackHitbox1",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -229,11 +253,17 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.6897782140104501,
+        "zoomFactor": 0.7130377630690402,
         "windowMask": false
       },
       "objectsGroups": [],
-      "variables": [],
+      "variables": [
+        {
+          "name": "player1HitboxTimer",
+          "type": "number",
+          "value": 0
+        }
+      ],
       "instances": [
         {
           "angle": 0,
@@ -245,8 +275,8 @@
           "name": "player1",
           "persistentUuid": "920000d8-41a9-4aa4-9762-6f108a4cf740",
           "width": 101,
-          "x": 427,
-          "y": 450,
+          "x": 564,
+          "y": 460,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -330,8 +360,8 @@
           "name": "player2",
           "persistentUuid": "8b5b46c0-f9e2-49cb-9416-29aa748be77c",
           "width": 101,
-          "x": 654,
-          "y": 454,
+          "x": 648,
+          "y": 448,
           "zOrder": 3,
           "numberProperties": [],
           "stringProperties": [],
@@ -340,7 +370,7 @@
       ],
       "objects": [
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "platform",
           "type": "Sprite",
@@ -384,11 +414,11 @@
                         [
                           {
                             "x": 11,
-                            "y": 25
+                            "y": 66
                           },
                           {
                             "x": 880,
-                            "y": 25
+                            "y": 66
                           },
                           {
                             "x": 880,
@@ -408,7 +438,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "jump_platform",
           "type": "Sprite",
@@ -452,11 +482,11 @@
                         [
                           {
                             "x": 11,
-                            "y": 25
+                            "y": 58
                           },
                           {
                             "x": 880,
-                            "y": 25
+                            "y": 58
                           },
                           {
                             "x": 880,
@@ -476,7 +506,7 @@
           ]
         },
         {
-          "adaptCollisionMaskAutomatically": true,
+          "adaptCollisionMaskAutomatically": false,
           "assetStoreId": "",
           "name": "ladder_platform2",
           "type": "Sprite",
@@ -538,11 +568,11 @@
                         [
                           {
                             "x": 11,
-                            "y": 25
+                            "y": 62
                           },
                           {
                             "x": 880,
-                            "y": 25
+                            "y": 62
                           },
                           {
                             "x": 880,
@@ -585,24 +615,712 @@
               "IdleAnimationName": "idle",
               "RunAnimationName": "run",
               "JumpAnimationName": "jump",
-              "FallAnimationName": "Fall",
-              "ClimbAnimationName": "Climb",
+              "FallAnimationName": "",
+              "ClimbAnimationName": "",
               "PlatformerBehavior": "PlatformerObject",
               "Animation": "Animation",
               "Flippable": "Flippable"
             },
             {
+              "gravity": 3000,
               "name": "PlatformerObject",
               "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "jumpSustainTime": 0.3,
               "ignoreDefaultControls": true,
               "acceleration": 5000,
               "canGoDownFromJumpthru": true,
               "canGrabPlatforms": false,
               "canGrabWithoutMoving": true,
               "deceleration": 999999,
+              "jumpSpeed": 1400,
+              "ladderClimbingSpeed": 150,
+              "maxFallingSpeed": 5000,
+              "maxSpeed": 1000,
+              "slopeMaxAngle": 60,
+              "useLegacyTrajectory": false,
+              "xGrabTolerance": 10,
+              "yGrabOffset": 0
+            }
+          ],
+          "animations": [
+            {
+              "name": "idle",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewSprite",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "squat",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player1",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "run",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": true,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player2",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player3",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player4",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player5",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player6",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player7",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player8",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player9",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "attack",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player10",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player11",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player12",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player13",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "jump",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player14",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "player15",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "player2",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [
+            {
+              "name": "PlatformerCharacterAnimator",
+              "type": "PlatformerCharacterAnimator::PlatformerCharacterAnimator",
+              "EnableAnimationChanges": true,
+              "EnableHorizontalFlipping": true,
+              "IdleAnimationName": "idle",
+              "RunAnimationName": "run",
+              "JumpAnimationName": "jump",
+              "FallAnimationName": "",
+              "ClimbAnimationName": "",
+              "PlatformerBehavior": "PlatformerObject",
+              "Animation": "Animation",
+              "Flippable": "Flippable"
+            },
+            {
+              "acceleration": 3000,
+              "jumpSustainTime": 0.3,
+              "name": "PlatformerObject",
+              "type": "PlatformBehavior::PlatformerObjectBehavior",
+              "ignoreDefaultControls": true,
+              "canGoDownFromJumpthru": true,
+              "canGrabPlatforms": false,
+              "canGrabWithoutMoving": true,
+              "deceleration": 999999,
               "gravity": 5000,
               "jumpSpeed": 1400,
-              "jumpSustainTime": 0.2,
               "ladderClimbingSpeed": 150,
               "maxFallingSpeed": 5000,
               "maxSpeed": 1000,
@@ -1259,51 +1977,15 @@
         {
           "adaptCollisionMaskAutomatically": true,
           "assetStoreId": "",
-          "name": "player2",
+          "name": "AttackHitbox1",
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
           "effects": [],
-          "behaviors": [
-            {
-              "isFolded": true,
-              "name": "PlatformerCharacterAnimator",
-              "type": "PlatformerCharacterAnimator::PlatformerCharacterAnimator",
-              "EnableAnimationChanges": true,
-              "EnableHorizontalFlipping": true,
-              "IdleAnimationName": "idle",
-              "RunAnimationName": "run",
-              "JumpAnimationName": "jump",
-              "FallAnimationName": "Fall",
-              "ClimbAnimationName": "Climb",
-              "PlatformerBehavior": "PlatformerObject",
-              "Animation": "Animation",
-              "Flippable": "Flippable"
-            },
-            {
-              "name": "PlatformerObject",
-              "type": "PlatformBehavior::PlatformerObjectBehavior",
-              "ignoreDefaultControls": true,
-              "acceleration": 5000,
-              "canGoDownFromJumpthru": true,
-              "canGrabPlatforms": false,
-              "canGrabWithoutMoving": true,
-              "deceleration": 999999,
-              "gravity": 5000,
-              "jumpSpeed": 1400,
-              "jumpSustainTime": 0.2,
-              "ladderClimbingSpeed": 150,
-              "maxFallingSpeed": 5000,
-              "maxSpeed": 1000,
-              "slopeMaxAngle": 60,
-              "useLegacyTrajectory": false,
-              "xGrabTolerance": 10,
-              "yGrabOffset": 0
-            }
-          ],
+          "behaviors": [],
           "animations": [
             {
-              "name": "idle",
+              "name": "AttackHitbox1",
               "useMultipleDirections": false,
               "directions": [
                 {
@@ -1313,7 +1995,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "NewSprite",
+                      "image": "AttackHitbox1",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -1329,612 +2011,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 12,
-                            "y": 3
+                            "x": 0,
+                            "y": 5
                           },
                           {
-                            "x": 34,
-                            "y": 3
+                            "x": 46,
+                            "y": 5
                           },
                           {
-                            "x": 34,
-                            "y": 48
+                            "x": 46,
+                            "y": 55
                           },
                           {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "squat",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player1",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "run",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": true,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player2",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player3",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player4",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player5",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player6",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player7",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player8",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player9",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "attack",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player10",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player11",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player12",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player13",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "jump",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player14",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "player15",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 12,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 3
-                          },
-                          {
-                            "x": 34,
-                            "y": 48
-                          },
-                          {
-                            "x": 12,
-                            "y": 48
+                            "x": 0,
+                            "y": 55
                           }
                         ]
                       ]
@@ -1963,6 +2053,9 @@
           },
           {
             "objectName": "ladder_platform2"
+          },
+          {
+            "objectName": "AttackHitbox1"
           }
         ]
       },
@@ -2050,6 +2143,17 @@
               "parameters": [
                 "player1",
                 "PlatformerObject"
+              ]
+            },
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "player1",
+                "Animation",
+                "=",
+                "\"squat\""
               ]
             }
           ]
@@ -2163,6 +2267,17 @@
                 "player2",
                 "PlatformerObject"
               ]
+            },
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "player2",
+                "Animation",
+                "=",
+                "\"squat\""
+              ]
             }
           ]
         },
@@ -2196,23 +2311,284 @@
           "conditions": [
             {
               "type": {
-                "value": "CollisionNP"
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"j\""
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "player1HitboxTimer",
+                "<=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "inverted": true,
+                "value": "FlippableCapability::FlippableBehavior::FlippedX"
               },
               "parameters": [
                 "player1",
-                "player2",
-                "=",
-                "",
-                ""
+                "Flippable"
               ]
             }
           ],
-          "actions": []
+          "actions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "player1",
+                "Animation",
+                "=",
+                "\"attack\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "AttackHitbox1",
+                "player1.X()",
+                "player1.Y()",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "AttackHitbox1",
+                "=",
+                "100"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "player1HitboxTimer",
+                "=",
+                "0.3"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "KeyFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"j\""
+              ]
+            },
+            {
+              "type": {
+                "value": "NumberVariable"
+              },
+              "parameters": [
+                "player1HitboxTimer",
+                "<=",
+                "0"
+              ]
+            },
+            {
+              "type": {
+                "value": "FlippableCapability::FlippableBehavior::FlippedX"
+              },
+              "parameters": [
+                "player1",
+                "Flippable"
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "AnimatableCapability::AnimatableBehavior::SetName"
+              },
+              "parameters": [
+                "player1",
+                "Animation",
+                "=",
+                "\"attack\""
+              ]
+            },
+            {
+              "type": {
+                "value": "Create"
+              },
+              "parameters": [
+                "",
+                "AttackHitbox1",
+                "player1.X()-50",
+                "player1.Y()",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "ChangePlan"
+              },
+              "parameters": [
+                "AttackHitbox1",
+                "=",
+                "100"
+              ]
+            },
+            {
+              "type": {
+                "value": "SetNumberVariable"
+              },
+              "parameters": [
+                "player1HitboxTimer",
+                "=",
+                "0.3"
+              ]
+            }
+          ]
         },
         {
           "type": "BuiltinCommonInstructions::Standard",
           "conditions": [],
-          "actions": []
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "player1HitboxTimer",
+                    ">",
+                    "0"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "SetNumberVariable"
+                  },
+                  "parameters": [
+                    "player1HitboxTimer",
+                    "-",
+                    "TimeDelta()"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "CollisionNP"
+              },
+              "parameters": [
+                "AttackHitbox1",
+                "player2",
+                "",
+                "",
+                "yes"
+              ]
+            }
+          ],
+          "actions": [],
+          "events": [
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "inverted": true,
+                    "value": "FlippableCapability::FlippableBehavior::FlippedX"
+                  },
+                  "parameters": [
+                    "player1",
+                    "Flippable"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "player2",
+                    "3000",
+                    "-1600",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "AttackHitbox1",
+                    ""
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "FlippableCapability::FlippableBehavior::FlippedX"
+                  },
+                  "parameters": [
+                    "player1",
+                    "Flippable"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "AddForceXY"
+                  },
+                  "parameters": [
+                    "player2",
+                    "3000",
+                    "-1600",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "AttackHitbox1",
+                    ""
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "layers": [
