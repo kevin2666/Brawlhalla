@@ -910,6 +910,38 @@
         "preloadAsSound": false,
         "preloadInCache": false,
         "userAdded": false
+      },
+      {
+        "file": "assets/squat3.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "squat3",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/squat4.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "squat4",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/squat5.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "squat5",
+        "smoothed": false,
+        "userAdded": false
+      },
+      {
+        "file": "assets/squat6.png",
+        "kind": "image",
+        "metadata": "{\"extension\":\".png\"}",
+        "name": "squat6",
+        "smoothed": false,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -1387,6 +1419,11 @@
               "name": "KnockbackY",
               "type": "number",
               "value": 0
+            },
+            {
+              "name": "player1Direction",
+              "type": "string",
+              "value": "right"
             }
           ],
           "effects": [],
@@ -1488,7 +1525,43 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "player1",
+                      "image": "squat3",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "squat4",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -2313,7 +2386,43 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "squat2",
+                      "image": "squat5",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 21,
+                        "y": 3.5
+                      },
+                      "centerPoint": {
+                        "automatic": false,
+                        "name": "centre",
+                        "x": 21,
+                        "y": 47.5
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 12,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 3
+                          },
+                          {
+                            "x": 34,
+                            "y": 48
+                          },
+                          {
+                            "x": 12,
+                            "y": 48
+                          }
+                        ]
+                      ]
+                    },
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "squat6",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -3359,11 +3468,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"w\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"w\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"Y\"",
+                    "\"Up\""
+                  ]
+                }
               ]
             },
             {
@@ -3390,11 +3518,31 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"a\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"a\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"Left\"",
+                    "\"Left\"",
+                    ""
+                  ]
+                }
               ]
             }
           ],
@@ -3407,6 +3555,17 @@
                 "player1",
                 "PlatformerObject"
               ]
+            },
+            {
+              "type": {
+                "value": "SetStringObjectVariable"
+              },
+              "parameters": [
+                "player1",
+                "player1Direction",
+                "=",
+                "\"left\""
+              ]
             }
           ]
         },
@@ -3415,11 +3574,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"s\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"s\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"B\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -3457,11 +3635,31 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"d\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"d\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"Left\"",
+                    "\"Right\"",
+                    "\"Left\""
+                  ]
+                }
               ]
             }
           ],
@@ -3474,6 +3672,17 @@
                 "player1",
                 "PlatformerObject"
               ]
+            },
+            {
+              "type": {
+                "value": "SetStringObjectVariable"
+              },
+              "parameters": [
+                "player1",
+                "player1Direction",
+                "=",
+                "\"right\""
+              ]
             }
           ]
         },
@@ -3482,11 +3691,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"Up\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Up\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"Y\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -3513,11 +3741,31 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"Left\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Left\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"Left\"",
+                    "\"Left\"",
+                    ""
+                  ]
+                }
               ]
             }
           ],
@@ -3538,11 +3786,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"Down\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Down\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"B\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -3580,11 +3847,31 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"Right\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"Right\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Axis_pushed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"Left\"",
+                    "\"Right\"",
+                    ""
+                  ]
+                }
               ]
             }
           ],
@@ -3605,11 +3892,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"c\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"c\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -3624,12 +3930,21 @@
             },
             {
               "type": {
-                "inverted": true,
-                "value": "FlippableCapability::FlippableBehavior::FlippedX"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "player1",
-                "Flippable"
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "StringObjectVariable"
+                  },
+                  "parameters": [
+                    "player1",
+                    "player1Direction",
+                    "=",
+                    "\"right\""
+                  ]
+                }
               ]
             }
           ],
@@ -3728,35 +4043,6 @@
                   "parameters": [
                     "PunchSoundIndex",
                     "=",
-                    "1"
-                  ]
-                }
-              ],
-              "actions": [
-                {
-                  "type": {
-                    "value": "PlaySound"
-                  },
-                  "parameters": [
-                    "",
-                    "1.mp3",
-                    "",
-                    "",
-                    ""
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [
-                {
-                  "type": {
-                    "value": "NumberVariable"
-                  },
-                  "parameters": [
-                    "PunchSoundIndex",
-                    "=",
                     "2"
                   ]
                 }
@@ -3804,6 +4090,35 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "BuiltinCommonInstructions::Standard",
+              "conditions": [
+                {
+                  "type": {
+                    "value": "NumberVariable"
+                  },
+                  "parameters": [
+                    "PunchSoundIndex",
+                    "=",
+                    "1"
+                  ]
+                }
+              ],
+              "actions": [
+                {
+                  "type": {
+                    "value": "PlaySound"
+                  },
+                  "parameters": [
+                    "",
+                    "1.mp3",
+                    "",
+                    "",
+                    ""
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -3812,11 +4127,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"c\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"c\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -3831,11 +4165,13 @@
             },
             {
               "type": {
-                "value": "FlippableCapability::FlippableBehavior::FlippedX"
+                "value": "StringObjectVariable"
               },
               "parameters": [
                 "player1",
-                "Flippable"
+                "player1Direction",
+                "=",
+                "\"left\""
               ]
             }
           ],
@@ -4296,11 +4632,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"j\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"A\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -4503,11 +4858,30 @@
           "conditions": [
             {
               "type": {
-                "value": "KeyFromTextPressed"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "",
-                "\"j\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "KeyFromTextPressed"
+                  },
+                  "parameters": [
+                    "",
+                    "\"j\""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"A\"",
+                    ""
+                  ]
+                }
               ]
             },
             {
@@ -6960,22 +7334,32 @@
           "conditions": [
             {
               "type": {
-                "value": "SourisSurObjet"
+                "value": "BuiltinCommonInstructions::Or"
               },
-              "parameters": [
-                "start",
-                "=",
-                "",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "MouseButtonFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"Left\""
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"A\"",
+                    "\"Up\""
+                  ]
+                }
               ]
             }
           ],
@@ -6991,6 +7375,48 @@
               ]
             }
           ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "MouseButtonFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Left\""
+              ]
+            },
+            {
+              "type": {
+                "value": "SourisSurObjet"
+              },
+              "parameters": [
+                "start",
+                "=",
+                "",
+                ""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"game\"",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": []
         }
       ],
       "layers": [
@@ -7753,6 +8179,52 @@
               "parameters": [
                 "",
                 "\"Left\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "BackButton::doDefault"
+              },
+              "parameters": [
+                "",
+                ""
+              ]
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "BuiltinCommonInstructions::Or"
+              },
+              "parameters": [],
+              "subInstructions": [
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "1",
+                    "\"A\"",
+                    ""
+                  ]
+                },
+                {
+                  "type": {
+                    "value": "Gamepads::C_Button_pressed"
+                  },
+                  "parameters": [
+                    "",
+                    "2",
+                    "\"A\"",
+                    ""
+                  ]
+                }
               ]
             }
           ],
