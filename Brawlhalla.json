@@ -1,7 +1,7 @@
 {
-  "firstLayout": "",
+  "firstLayout": "start",
   "gdVersion": {
-    "build": 228,
+    "build": 230,
     "major": 5,
     "minor": 5,
     "revision": 0
@@ -366,6 +366,70 @@
         "name": "NewSprite16",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "file": "images.png",
+        "kind": "image",
+        "metadata": "{\"localFilePath\":\"images.png\",\"extension\":\".png\"}",
+        "name": "images.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "parallax-mountain-bg.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "parallax-mountain-bg.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "game_over.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "game_over.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "tilesetOpenGameBackground.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tilesetOpenGameBackground.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "tilesetOpenGameBackground2.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tilesetOpenGameBackground2.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "tilesetOpenGameBackground3.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tilesetOpenGameBackground3.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "tilesetOpenGameBackground4.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tilesetOpenGameBackground4.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "file": "tilesetOpenGameBackground5.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "tilesetOpenGameBackground5.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -397,7 +461,7 @@
         "gridColor": 10401023,
         "gridAlpha": 0.8,
         "snap": false,
-        "zoomFactor": 0.7130377630690402,
+        "zoomFactor": 0.1271023371992677,
         "windowMask": false
       },
       "objectsGroups": [],
@@ -429,8 +493,8 @@
           "name": "player1",
           "persistentUuid": "920000d8-41a9-4aa4-9762-6f108a4cf740",
           "width": 101,
-          "x": 564,
-          "y": 460,
+          "x": 556,
+          "y": 450,
           "zOrder": 1,
           "numberProperties": [],
           "stringProperties": [],
@@ -446,8 +510,8 @@
           "name": "platform",
           "persistentUuid": "f3efa6dc-19a9-40ac-89cd-22f64643fb36",
           "width": 511,
-          "x": 353,
-          "y": 510,
+          "x": 357,
+          "y": 502,
           "zOrder": 0,
           "numberProperties": [],
           "stringProperties": [],
@@ -534,23 +598,6 @@
           "x": 603,
           "y": 308,
           "zOrder": 4,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "depth": 1,
-          "height": 43,
-          "keepRatio": true,
-          "layer": "",
-          "name": "GroundWeapon",
-          "persistentUuid": "764102b4-f286-4bd9-bcf7-0f5b9228540e",
-          "width": 41,
-          "x": 678,
-          "y": 497,
-          "zOrder": 5,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -792,9 +839,9 @@
               "value": 0
             },
             {
-              "name": "HasWeapon",
-              "type": "number",
-              "value": 0
+              "name": "HandWeapon",
+              "type": "boolean",
+              "value": false
             }
           ],
           "effects": [],
@@ -2462,356 +2509,6 @@
           "effects": [],
           "behaviors": [],
           "animations": []
-        },
-        {
-          "adaptCollisionMaskAutomatically": false,
-          "assetStoreId": "",
-          "name": "GroundWeapon",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "assetss main\\assets\\icons\\sword1.png",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 5,
-                            "y": 1
-                          },
-                          {
-                            "x": 11,
-                            "y": 1
-                          },
-                          {
-                            "x": 11,
-                            "y": 15
-                          },
-                          {
-                            "x": 5,
-                            "y": 15
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "adaptCollisionMaskAutomatically": true,
-          "assetStoreId": "",
-          "name": "Weapon",
-          "type": "Sprite",
-          "updateIfNotVisible": false,
-          "variables": [],
-          "effects": [],
-          "behaviors": [],
-          "animations": [
-            {
-              "name": "HandWeapon",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite10",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "Weapon",
-              "useMultipleDirections": false,
-              "directions": [
-                {
-                  "looping": false,
-                  "metadata": "{\"pskl\":{}}",
-                  "timeBetweenFrames": 0.08,
-                  "sprites": [
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite11",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite12",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite13",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite14",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite15",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    },
-                    {
-                      "hasCustomCollisionMask": true,
-                      "image": "NewSprite16",
-                      "points": [],
-                      "originPoint": {
-                        "name": "origine",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "centerPoint": {
-                        "automatic": true,
-                        "name": "centre",
-                        "x": 0,
-                        "y": 0
-                      },
-                      "customCollisionMask": [
-                        [
-                          {
-                            "x": 10,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 1
-                          },
-                          {
-                            "x": 26,
-                            "y": 17
-                          },
-                          {
-                            "x": 10,
-                            "y": 17
-                          }
-                        ]
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
         }
       ],
       "objectsFolderStructure": {
@@ -2831,12 +2528,6 @@
           },
           {
             "objectName": "ladder_platform2"
-          },
-          {
-            "objectName": "GroundWeapon"
-          },
-          {
-            "objectName": "Weapon"
           },
           {
             "objectName": "AttackHitbox1"
@@ -3816,7 +3507,7 @@
                 "=",
                 "(player1.X()+player2.X())/2",
                 "=",
-                "(player1.Y()+player2.Y())/2"
+                "clamp((player1.Y()+player2.Y())/2,0,500)"
               ]
             }
           ],
@@ -3883,64 +3574,52 @@
           "conditions": [
             {
               "type": {
-                "value": "CollisionNP"
+                "value": "PosY"
               },
               "parameters": [
                 "player1",
-                "GroundWeapon",
-                "",
-                "",
-                ""
-              ]
-            },
-            {
-              "type": {
-                "value": "KeyFromTextPressed"
-              },
-              "parameters": [
-                "",
-                "\"v\""
-              ]
-            },
-            {
-              "type": {
-                "value": "NumberObjectVariable"
-              },
-              "parameters": [
-                "player1",
-                "HasWeapon",
-                "=",
-                "0"
+                ">",
+                "3000"
               ]
             }
           ],
           "actions": [
             {
               "type": {
-                "value": "Delete"
+                "value": "Scene"
               },
               "parameters": [
-                "GroundWeapon",
+                "",
+                "\"gameover\"",
                 ""
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
             {
               "type": {
-                "value": "SetNumberObjectVariable"
+                "value": "PosY"
               },
               "parameters": [
-                "player1",
-                "HasWeapon",
-                "=",
-                "1"
+                "player2",
+                ">",
+                "3000"
               ]
             }
           ],
-          "events": [
+          "actions": [
             {
-              "type": "BuiltinCommonInstructions::Standard",
-              "conditions": [],
-              "actions": []
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"gameover\"",
+                ""
+              ]
             }
           ]
         }
@@ -4031,6 +3710,398 @@
         {
           "name": "Scale",
           "type": "ScalableCapability::ScalableBehavior"
+        }
+      ]
+    },
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "start",
+      "name": "start",
+      "r": 209,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 209,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "start",
+          "persistentUuid": "02b9886d-dc01-437d-b8d2-8f23372ce15e",
+          "width": 0,
+          "x": 527,
+          "y": 417,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewPanelSprite",
+          "persistentUuid": "8fe75ed6-0c99-496b-b829-51a7b9066561",
+          "width": 0,
+          "x": 1,
+          "y": 2,
+          "zOrder": 0,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "adaptCollisionMaskAutomatically": true,
+          "assetStoreId": "",
+          "name": "start",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "start",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "metadata": "{\"pskl\":{}}",
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "images.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 0,
+                            "y": 64
+                          },
+                          {
+                            "x": 225,
+                            "y": 64
+                          },
+                          {
+                            "x": 225,
+                            "y": 161
+                          },
+                          {
+                            "x": 0,
+                            "y": 161
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "bottomMargin": 0,
+          "height": 721,
+          "leftMargin": 0,
+          "name": "NewPanelSprite",
+          "rightMargin": 0,
+          "texture": "parallax-mountain-bg.png",
+          "tiled": false,
+          "topMargin": 0,
+          "type": "PanelSpriteObject::PanelSprite",
+          "width": 1280,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "NewPanelSprite"
+          },
+          {
+            "objectName": "start"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "value": "SourisSurObjet"
+              },
+              "parameters": [
+                "start",
+                "=",
+                "",
+                ""
+              ]
+            },
+            {
+              "type": {
+                "value": "MouseButtonFromTextPressed"
+              },
+              "parameters": [
+                "",
+                "\"Left\""
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "value": "Scene"
+              },
+              "parameters": [
+                "",
+                "\"game\"",
+                ""
+              ]
+            }
+          ]
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Light",
+              "doubleParameters": {
+                "elevation": 45,
+                "intensity": 1,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "groundColor": "64;64;64",
+                "skyColor": "255;255;255",
+                "top": "Y-"
+              },
+              "booleanParameters": {}
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Animation",
+          "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        }
+      ]
+    },
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "gameover",
+      "name": "gameover",
+      "r": 209,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 209,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.546875,
+        "windowMask": false
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "keepRatio": true,
+          "layer": "",
+          "name": "NewPanelSprite",
+          "persistentUuid": "d1785a4c-5b01-4043-b160-f7913b206b32",
+          "width": 0,
+          "x": 0,
+          "y": 1,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "bottomMargin": 0,
+          "height": 720,
+          "leftMargin": 0,
+          "name": "NewPanelSprite",
+          "rightMargin": 0,
+          "texture": "game_over.png",
+          "tiled": false,
+          "topMargin": 0,
+          "type": "PanelSpriteObject::PanelSprite",
+          "width": 1280,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "NewPanelSprite"
+          }
+        ]
+      },
+      "events": [],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": [
+            {
+              "effectType": "Scene3D::HemisphereLight",
+              "name": "3D Light",
+              "doubleParameters": {
+                "elevation": 45,
+                "intensity": 1,
+                "rotation": 0
+              },
+              "stringParameters": {
+                "groundColor": "64;64;64",
+                "skyColor": "255;255;255",
+                "top": "Y-"
+              },
+              "booleanParameters": {}
+            }
+          ]
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
         }
       ]
     }
