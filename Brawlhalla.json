@@ -1472,20 +1472,20 @@
               "Flippable": "Flippable"
             },
             {
+              "gravity": 1500,
+              "jumpSpeed": 1000,
+              "jumpSustainTime": 0.1,
+              "maxSpeed": 500,
               "name": "PlatformerObject",
               "type": "PlatformBehavior::PlatformerObjectBehavior",
-              "gravity": 3000,
-              "jumpSustainTime": 0.3,
               "ignoreDefaultControls": true,
               "acceleration": 5000,
               "canGoDownFromJumpthru": true,
               "canGrabPlatforms": false,
               "canGrabWithoutMoving": true,
               "deceleration": 999999,
-              "jumpSpeed": 1400,
               "ladderClimbingSpeed": 150,
               "maxFallingSpeed": 5000,
-              "maxSpeed": 1000,
               "slopeMaxAngle": 60,
               "useLegacyTrajectory": false,
               "xGrabTolerance": 10,
@@ -2333,9 +2333,11 @@
               "Flippable": "Flippable"
             },
             {
+              "gravity": 1500,
+              "jumpSpeed": 1000,
+              "maxSpeed": 500,
               "name": "PlatformerObject",
               "type": "PlatformBehavior::PlatformerObjectBehavior",
-              "gravity": 3000,
               "jumpSustainTime": 0.3,
               "ignoreDefaultControls": true,
               "acceleration": 5000,
@@ -2343,10 +2345,8 @@
               "canGrabPlatforms": false,
               "canGrabWithoutMoving": true,
               "deceleration": 999999,
-              "jumpSpeed": 1400,
               "ladderClimbingSpeed": 150,
               "maxFallingSpeed": 5000,
-              "maxSpeed": 1000,
               "slopeMaxAngle": 60,
               "useLegacyTrajectory": false,
               "xGrabTolerance": 10,
@@ -4461,7 +4461,7 @@
                     "player2",
                     "KnockbackX",
                     "=",
-                    "600"
+                    "10000"
                   ]
                 },
                 {
@@ -4472,7 +4472,7 @@
                     "player2",
                     "KnockbackY",
                     "=",
-                    "-500"
+                    "-1000"
                   ]
                 },
                 {
@@ -4483,7 +4483,7 @@
                     "player2",
                     "KnockbackTimer",
                     "=",
-                    "0.3"
+                    "0.5"
                   ]
                 },
                 {
@@ -4538,7 +4538,7 @@
                     "player2",
                     "KnockbackX",
                     "=",
-                    "-600"
+                    "-10000"
                   ]
                 },
                 {
@@ -4549,7 +4549,7 @@
                     "player2",
                     "KnockbackY",
                     "=",
-                    "-500"
+                    "-1000"
                   ]
                 },
                 {
@@ -4560,7 +4560,7 @@
                     "player2",
                     "KnockbackTimer",
                     "=",
-                    "0.3"
+                    "0.5"
                   ]
                 },
                 {
@@ -5190,7 +5190,7 @@
                     "player1",
                     "KnockbackX",
                     "=",
-                    "600"
+                    "10000"
                   ]
                 },
                 {
@@ -5201,7 +5201,7 @@
                     "player1",
                     "KnockbackY",
                     "=",
-                    "-500"
+                    "-1000"
                   ]
                 },
                 {
@@ -5212,7 +5212,7 @@
                     "player1",
                     "KnockbackTimer",
                     "=",
-                    "0.3"
+                    "0.5"
                   ]
                 },
                 {
@@ -5267,7 +5267,7 @@
                     "player1",
                     "KnockbackX",
                     "=",
-                    "-600"
+                    "-10000"
                   ]
                 },
                 {
@@ -5278,7 +5278,7 @@
                     "player1",
                     "KnockbackY",
                     "=",
-                    "-500"
+                    "-1000"
                   ]
                 },
                 {
@@ -5289,7 +5289,7 @@
                     "player1",
                     "KnockbackTimer",
                     "=",
-                    "0.3"
+                    "0.5"
                   ]
                 },
                 {
@@ -7656,10 +7656,10 @@
           "effects": [],
           "behaviors": [
             {
-              "canBeGrabbed": true,
               "name": "Platform",
-              "platformType": "NormalPlatform",
               "type": "PlatformBehavior::PlatformBehavior",
+              "canBeGrabbed": true,
+              "platformType": "NormalPlatform",
               "yGrabOffset": 0
             }
           ],
